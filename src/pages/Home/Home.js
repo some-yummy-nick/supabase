@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
-import supabase from 'config/api'
+import api from 'config/api'
+import './Home.scss'
 
 //components
 import SmoothieCard from 'components/SmoothieCard/SmoothieCard'
@@ -11,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchSmoothies = async () => {
-      const { data, error } = await supabase.from('smoothies').select()
+      const { data, error } = await api.from('smoothies').select()
 
       if (error) {
         setFetchError('Could not fetch the smoothies')

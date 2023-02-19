@@ -3,8 +3,8 @@ import { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 // pages
-const Home = lazy(() => import('./pages/Home'))
-const Create = lazy(() => import('./pages/Create'))
+const Home = lazy(() => import('./pages/Home/Home'))
+const Create = lazy(() => import('./pages/Create/Create'))
 const Update = lazy(() => import('./pages/Update'))
 
 function App() {

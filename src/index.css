@@ -20,29 +20,28 @@ body {
   background: #f2f2f2;
 }
 
+button{
+  cursor: pointer;
+}
+
 nav {
   background: var(--primary);
   padding: 10px 20px;
   text-align: center;
 }
+
 nav a {
   color: #f2f2f2;
   margin: 10px;
   display: inline-block;
 }
+
 nav h1 {
   color: #fff;
 }
+
 .page {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-}
-
-/* smoothie grid */
-.smoothie-grid {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
 }
