@@ -4,6 +4,11 @@
   --primary: #12bca2;
   --secondary: #6d15df;
 }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 h1,h2,h3 {
   margin: 0;
 }
@@ -14,6 +19,7 @@ body {
   font-family: 'Poppins';
   background: #f2f2f2;
 }
+
 nav {
   background: var(--primary);
   padding: 10px 20px;
@@ -31,4 +37,12 @@ nav h1 {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
+}
+
+/* smoothie grid */
+.smoothie-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 }
