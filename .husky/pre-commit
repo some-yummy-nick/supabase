@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-npm run prettier
+echo "the pre-commit hook ran 🚀"
+npx pretty-quick --staged

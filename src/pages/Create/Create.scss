@@ -5,7 +5,8 @@ form {
   margin: 0 auto;
   border-radius: 6px;
 }
-form input, form textarea {
+form input,
+form textarea {
   display: block;
   width: 100%;
   padding: 6px;
@@ -18,5 +19,5 @@ form button {
   border: 0;
   border-radius: 6px;
   padding: 6px 8px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
 }
