@@ -11,21 +11,23 @@ const Home = () => {
   const [smoothies, setSmoothies] = useState(null)
 
   useEffect(() => {
-    const fetchSmoothies = async () => {
-      const { data, error } = await api.from('smoothies').select()
-
-      if (error) {
-        setFetchError('Could not fetch the smoothies')
-        console.error(error)
-        setSmoothies(null)
-      }
-      if (data) {
-        setSmoothies(data)
-        setFetchError(null)
-      }
-    }
     fetchSmoothies()
   }, [])
+
+  const fetchSmoothies = async () => {
+    const { data, error } = await api.from('smoothies').select()
+
+    if (error) {
+      setFetchError('Could not fetch the smoothies')
+      console.error(error)
+      setSmoothies(null)
+    }
+    if (data) {
+      setSmoothies(data)
+      setFetchError(null)
+    }
+  }
+
   return (
     <div className="page home">
       {fetchError && <p>{fetchError}</p>}

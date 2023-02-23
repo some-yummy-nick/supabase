@@ -1,10 +1,13 @@
-import { lazy, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { lazy, useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import api from 'config/api'
+import './Update.scss'
+
 const Form = lazy(() => import('../../components/Form/Form'))
 
-const Create = () => {
+const Update = () => {
+  const { id } = useParams()
   const navigate = useNavigate()
 
   const [title, setTitle] = useState('')
@@ -12,28 +15,50 @@ const Create = () => {
   const [rating, setRating] = useState('')
   const [formError, setFormError] = useState(null)
 
+  const fetchSmoothie = async () => {
+    const { data, error } = await api
+      .from('smoothies')
+      .select()
+      .eq('id', id)
+      .single()
+
+    if (error) {
+      navigate('/', { replace: true })
+    }
+    if (data) {
+      setTitle(data.title)
+      setMethod(data.method)
+      setRating(data.rating)
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     if (!title || !method || !rating) {
       setFormError('Please fill in all the fields correctly.')
       return
     }
-
     const { error } = await api
       .from('smoothies')
-      .insert([{ title, method, rating }])
+      .update({ title, method, rating })
+      .eq('id', id)
 
     if (error) {
       console.error(error)
       setFormError('Please fill in all the fields correctly.')
       return
     }
+
     setFormError(null)
     navigate('/')
   }
+
+  useEffect(() => {
+    fetchSmoothie()
+  }, [id, navigate])
+
   return (
-    <div className="page create">
+    <div className="page update">
       <Form
         handleSubmit={handleSubmit}
         setTitle={setTitle}
@@ -43,10 +68,10 @@ const Create = () => {
         method={method}
         title={title}
         rating={rating}
-        buttonText="Create Smoothie Recipe"
+        buttonText="Update Smoothie Recipe"
       />
     </div>
   )
 }
 
-export default Create
+export default Update

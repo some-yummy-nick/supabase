@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 // pages
 const Home = lazy(() => import('./pages/Home/Home'))
 const Create = lazy(() => import('./pages/Create/Create'))
-const Update = lazy(() => import('./pages/Update'))
+const Update = lazy(() => import('./pages/Update/Update'))
 
 function App() {
   return (
