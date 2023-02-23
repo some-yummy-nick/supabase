@@ -1,4 +1,4 @@
-import { lazy, useEffect, useState } from 'react'
+import { lazy, useEffect, useState, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import api from 'config/api'
@@ -15,7 +15,7 @@ const Update = () => {
   const [rating, setRating] = useState('')
   const [formError, setFormError] = useState(null)
 
-  const fetchSmoothie = async () => {
+  const fetchSmoothie = useCallback(async () => {
     const { data, error } = await api
       .from('smoothies')
       .select()
@@ -30,7 +30,7 @@ const Update = () => {
       setMethod(data.method)
       setRating(data.rating)
     }
-  }
+  }, [id, navigate])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -55,7 +55,7 @@ const Update = () => {
 
   useEffect(() => {
     fetchSmoothie()
-  }, [id, navigate])
+  }, [id, navigate, fetchSmoothie])
 
   return (
     <div className="page update">

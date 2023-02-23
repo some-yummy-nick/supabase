@@ -28,6 +28,12 @@ const Home = () => {
     }
   }
 
+  const handleDelete = (id) => {
+    setSmoothies((prevSmoothies) => {
+      return prevSmoothies.filter((sm) => sm.id !== id)
+    })
+  }
+
   return (
     <div className="page home">
       {fetchError && <p>{fetchError}</p>}
@@ -35,7 +41,11 @@ const Home = () => {
         <div className="smoothie">
           <div className="smoothie-grid">
             {smoothies.map((smoothie) => (
-              <SmoothieCard key={smoothie.id} smoothie={smoothie} />
+              <SmoothieCard
+                key={smoothie.id}
+                smoothie={smoothie}
+                onDelete={handleDelete}
+              />
             ))}
           </div>
         </div>

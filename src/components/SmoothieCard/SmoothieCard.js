@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
 
+import api from 'config/api'
 import './SmoothieCard.scss'
 
-const SmoothieCard = ({ smoothie }) => {
+const SmoothieCard = ({ smoothie, onDelete }) => {
+  const handleDelete = async () => {
+    const { error } = await api.from('smoothies').delete().eq('id', smoothie.id)
+
+    if (error) {
+      console.error(error)
+      return
+    }
+    onDelete(smoothie.id)
+  }
+
   return (
     <div className="smoothie-card">
       <h3>{smoothie.title}</h3>
@@ -12,6 +23,9 @@ const SmoothieCard = ({ smoothie }) => {
         <Link to={'/' + smoothie.id}>
           <i className="material-icons">edit</i>
         </Link>
+        <button className="button-delete" onClick={handleDelete}>
+          <i className="material-icons">delete</i>
+        </button>
       </div>
     </div>
   )
