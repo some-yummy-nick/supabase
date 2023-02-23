@@ -28,7 +28,7 @@ const Create = () => {
 
     if (error) {
       console.error(error)
-      setFormError('Please fill in all the fields correctly.')
+      setFormError(error.message)
       return
     }
     setFormError(null)

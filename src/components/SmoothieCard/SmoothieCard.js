@@ -8,7 +8,7 @@ const SmoothieCard = ({ smoothie, onDelete }) => {
     const { error } = await api.from('smoothies').delete().eq('id', smoothie.id)
 
     if (error) {
-      console.error(error)
+      console.error(error.message)
       return
     }
     onDelete(smoothie.id)

@@ -8,7 +8,7 @@ import SmoothieCard from 'components/SmoothieCard/SmoothieCard'
 
 const Home = () => {
   const [fetchError, setFetchError] = useState(null)
-  const [smoothies, setSmoothies] = useState(null)
+  const [smoothies, setSmoothies] = useState([])
   const [reverseSort, setReverseSort] = useState(1)
   const [orderBy, setOrderBy] = useState('created_at')
 
@@ -80,7 +80,7 @@ const Home = () => {
   return (
     <div className="page home">
       {fetchError && <p>{fetchError}</p>}
-      {smoothies && (
+      {smoothies.length > 0 && (
         <div className="smoothie">
           <div className="order-by">
             <p>Order by:</p>
