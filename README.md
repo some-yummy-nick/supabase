@@ -1,4 +1,6 @@
-# Starter React Project for the Supabase Course
+![screenshot](https://github.com/some-yummy-nick/supabase/blob/main/supabase.jpg)
+
+[Результат](https://some-yummy-supabase.netlify.app/)
 
 **How to run the starter project:**
 
