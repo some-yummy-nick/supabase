@@ -4,7 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom'
 import api from 'config/api'
 import './Update.scss'
 
-const Form = lazy(() => import('../../components/Form/Form'))
+//components
+const Form = lazy(() => import('components/Form/Form'))
 
 const Update = () => {
   const { id } = useParams()

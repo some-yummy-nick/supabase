@@ -2,7 +2,9 @@ import { lazy, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import api from 'config/api'
-const Form = lazy(() => import('../../components/Form/Form'))
+
+//components
+const Form = lazy(() => import('components/Form/Form'))
 
 const Create = () => {
   const navigate = useNavigate()
