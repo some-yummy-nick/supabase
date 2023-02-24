@@ -1,16 +1,16 @@
 .smoothie-grid {
-  margin-top: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 40px;
   gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .order-by button {
   margin-right: 10px;
-  background: var(--primary);
-  color: #fff;
-  border: 0;
   padding: 4px 8px;
+  background: var(--primary);
+  border: 0;
   border-radius: 6px;
-  font-family: 'Poppins';
+  color: #fff;
+  font-family: Poppins, serif;
 }
